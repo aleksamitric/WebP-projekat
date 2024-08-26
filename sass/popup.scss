@@ -1,0 +1,29 @@
+#popup-div {
+    z-index: 100;
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 200px;
+    height: 120px;
+    background-color: transparent;
+    padding: 10px;
+
+    .material-symbols-outlined:hover {
+      cursor: pointer;
+    }
+    a {
+      color: white;
+      background-color: #0039ab;
+      padding: 10px;
+      text-decoration: none; 
+      display: block; 
+      border-radius: 4px; 
+      text-align: center;
+      &:hover {
+        position: relative;
+        bottom: 10px;
+        background-color: #0046d2;
+     }
+    }
+  }

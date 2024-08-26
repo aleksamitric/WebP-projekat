@@ -7,7 +7,7 @@
   .form-signin .form-floating:focus-within {
     z-index: 2;
   }
-  
+
   .form-signin input[type="email"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
@@ -27,11 +27,11 @@
     background-size: cover;
     background-attachment: fixed;
 }
+@media screen and (max-width: 767px) {
+  #login-body {
+      height: calc(100vh - 108px);
+  }
+}
 form {
     opacity: 0.8;
-}
-@media screen and (max-width: 767px) {
-    #login-body {
-        height: calc(100vh - 108px);
-    }
 }

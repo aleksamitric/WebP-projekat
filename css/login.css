@@ -27,12 +27,11 @@
   background-attachment: fixed;
 }
 
-form {
-  opacity: 0.8;
-}
-
 @media screen and (max-width: 767px) {
   #login-body {
     height: calc(100vh - 108px);
   }
+}
+form {
+  opacity: 0.8;
 }

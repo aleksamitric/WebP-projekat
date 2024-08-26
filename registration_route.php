@@ -53,8 +53,8 @@ $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 $activationLink = generateActivationLink();
 
 try {
-    $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password, activational_link, password_reset, active) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$firstName, $lastName, $email, $hashedPassword, $activationLink, null, 1]);
+    $stmt = $pdo->prepare("INSERT INTO users (first_name, last_name, phone, email, password, activational_link, password_reset, active) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$firstName, $lastName, $phone, $email, $hashedPassword, $activationLink, null, 1]);
     echo json_encode(['status' => 'success', 'message' => 'Registracija uspešna.']);
 } catch (PDOException $e) {
     echo json_encode(['status' => 'error', 'message' => 'Došlo je do greške prilikom registracije: ' . $e->getMessage()]);

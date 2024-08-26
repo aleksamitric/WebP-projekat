@@ -4,20 +4,20 @@ document.addEventListener('DOMContentLoaded', function() {
     forgotPasswordLink.addEventListener('click', function(event) {
         event.preventDefault();
 
-        const userEmail = prompt("Unesite vašu email adresu za oporavak lozinke:");
+        const userEmail = prompt("Unesite vašu email adresu za povratak lozinke:");
 
         if (userEmail) {
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (emailPattern.test(userEmail)) {
-                // Send AJAX request to PHP script
+                // Slanje AJAX zahteva za PHP
                 fetch('check_email.php?email=' + encodeURIComponent(userEmail))
                     .then(response => response.text())
                     .then(data => {
                         if (data === 'exists') {
                             alert("Na " + userEmail + " je poslat link za oporavak lozinke.");
                         } else if (data === 'not_exists') {
-                            alert("Email adresa nije pronađena. Pokušajte ponovo.");
+                            alert("Email adresa nije ispravna. Pokušajte ponovo.");
                         } else if (data === 'invalid_email') {
                             alert("Uneli ste nevažeću email adresu. Pokušajte ponovo.");
                         } else {
@@ -28,10 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert("Došlo je do greške. Pokušajte ponovo.");
                     });
             } else {
-                alert("Uneli ste nevažeću email adresu. Pokušajte ponovo.");
+                alert("Email adresa nije ispravna. Pokušajte ponovo.");
             }
-        } else {
-            alert("Oporavak lozinke je otkazan.");
         }
     });
 });

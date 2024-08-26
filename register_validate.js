@@ -1,4 +1,4 @@
-document.querySelector('form').addEventListener('submit', function(event) {
+document.getElementById('register-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     let isValid = true;
@@ -11,7 +11,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
     const password = document.getElementById('password').value.trim();
     const passwordConfirmation = document.getElementById('password_confirmation').value.trim();
 
-    // Reset error messages
+    // Reset error poruka
     document.getElementById('first_name_error').textContent = '';
     document.getElementById('last_name_error').textContent = '';
     document.getElementById('phone_error').textContent = '';
@@ -19,12 +19,12 @@ document.querySelector('form').addEventListener('submit', function(event) {
     document.getElementById('password_error').textContent = '';
     document.getElementById('password_confirmation_error').textContent = '';
 
-    // Validate required fields
+    // Provera prisustva svih obaveznih polja
     if (!firstName || !lastName || !phone || !email || !password || !passwordConfirmation) {
         document.getElementById('password_confirmation_error').textContent = 'Sva polja su obavezna';
         isValid = false;
     } else {
-        // Validate first name and last name
+        // Provera imena i prezimena
         if (!/^[a-zA-Z]+$/.test(firstName)) {
             errors.firstName = 'Ime može sadržati samo slova';
             isValid = false;
@@ -34,32 +34,32 @@ document.querySelector('form').addEventListener('submit', function(event) {
             isValid = false;
         }
 
-        // Validate phone number
+        // Provera broja telefona
         if (!/^\d{1,10}$/.test(phone)) {
             errors.phone = 'Broj telefona neispravno unet';
             isValid = false;
         }
 
-        // Validate email
+        // Provera emaila
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             errors.email = 'Nevažeća email adresa';
             isValid = false;
         }
 
-        // Validate password
+        // Provera lozinke
         if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(password)) {
             errors.password = 'Lozinka mora sadržati veliko slovo, malo slovo i broj';
             isValid = false;
         }
 
-        // Validate password confirmation
+        // Potvrda lozinke
         if (password !== passwordConfirmation) {
             errors.passwordConfirmation = 'Lozinke se ne podudaraju';
             isValid = false;
         }
     }
 
-    // Display errors
+    // Ispis errora
     if (!isValid) {
         if (errors.firstName) {
             document.getElementById('first_name_error').textContent = errors.firstName;
@@ -80,7 +80,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
             document.getElementById('password_confirmation_error').textContent = errors.passwordConfirmation;
         }
     } else {
-        // If everything is valid, send the data via AJAX
+        // Ako je sve u redu, slanje AJAXom
         const data = {
             first_name: firstName,
             last_name: lastName,
@@ -100,7 +100,6 @@ document.querySelector('form').addEventListener('submit', function(event) {
         .then(result => {
             if (result.status === 'success') {
                 alert(result.message);
-                // Optionally, redirect to another page or clear the form
             } else {
                 alert(result.message);
             }
@@ -108,5 +107,15 @@ document.querySelector('form').addEventListener('submit', function(event) {
         .catch(error => {
             alert("Došlo je do greške. Pokušajte ponovo.");
         });
+    }
+});
+
+// "Zaboravljena lozinka"
+document.getElementById('forgot-password-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    const email = prompt("Unesite vašu email adresu za resetovanje lozinke:");
+    if (email) {
+        // Logika za slanje email-a za reset lozinke
+        alert("Uputstva za resetovanje lozinke su poslata na " + email);
     }
 });

@@ -1,0 +1,44 @@
+.list-group {
+  width: 100%;
+  max-width: 460px;
+  margin-inline: 1.5rem;
+}
+
+#register-btn-div a {
+  text-decoration: none;
+  font-size: larger;
+  color: #ccc;
+  background-color: #0046d2;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: all 2s;
+  margin-bottom: 30px;
+}
+#register-btn-div a:hover {
+  color: #0046d2;
+  background-color: #ccc;
+  border: 1px solid #0046d2;
+  border-radius: 15px;
+}
+
+.custom-css {
+  color: #0039ab;
+  font-size: 30px;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+#profile-body {
+  min-height: calc(100vh - 73px);
+  background: url("../imgs/profile_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+@media screen and (max-width: 767px) {
+  #profile-body {
+    height: calc(100vh - 108px);
+  }
+}

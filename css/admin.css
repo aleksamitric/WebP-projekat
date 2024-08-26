@@ -1,0 +1,57 @@
+#admin-body {
+  min-height: calc(100vh - 73px);
+  background: url("../imgs/admin_bg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+  #login-body {
+    height: calc(100vh - 108px);
+  }
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+  gap: 5px;
+}
+
+.grid-item {
+  width: 60px;
+  height: 60px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.grid-item.selected {
+  background-color: #6fa8dc;
+}
+
+.hidden-radio {
+  display: none;
+}
+
+.disabled-radio {
+  background-color: red;
+  cursor: not-allowed;
+  color: white;
+  border: 1px solid red;
+}
+
+@media screen and (max-width: 520px) {
+  .grid-item {
+    width: 40px;
+    height: 40px;
+  }
+  .grid-container {
+    grid-template-columns: repeat(8, 40px);
+    grid-template-rows: repeat(8, 40px);
+  }
+}

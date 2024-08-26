@@ -1,8 +1,11 @@
 <?php
 $host = 'localhost';
-$dbname = 'restaurant';
-$dbuser = 'root';
-$dbpass = 'root'; 
+// $dbname = 'restaurant';
+// $dbuser = 'root';
+// $dbpass = 'root'; 
+$dbname = 'blok5';
+$dbuser = 'blok5';
+$dbpass = 'UE0ui26cM58OqEv'; 
 
 // Postavljanje DSN za PDO
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
